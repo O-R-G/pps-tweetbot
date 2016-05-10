@@ -1,23 +1,12 @@
-Twitter REST and Streaming Examples
+O\_R\_G\_pps Tweetbot
 =========================
 
-This Node.js application demonstrates how to use:
+This Node.js application tweets out images in response to @ replies.
 ------------
- - REST API - search (search.js)
- - Streaming API - 1% sample (sample.js)
- - Streaming API - filter (filter.js)
- - Streaming API - user stream (userstream.js)
 
-Documentation for these endpoints
+Documentation
 ------------
- - https://dev.twitter.com/rest/public/search
- - https://dev.twitter.com/rest/reference/get/search/tweets
- - https://dev.twitter.com/streaming/reference/get/statuses/sample
- - https://dev.twitter.com/streaming/reference/post/statuses/filter
  - https://dev.twitter.com/streaming/userstreams
-
-Additional documentation
-------------
  - https://github.com/ttezel/twit#twit
  - https://t.co/TweetObject
 
@@ -35,9 +24,6 @@ Install twit
 
 To run
 -----------
-	node filter.js
-	node sample.js
-	node search.js
-	node userstream.js
+    bot.js
 
-By [@jbulava](https://twitter.com/jbulava)
+Based on [Twitter REST and Streaming Examples](https://github.com/jbulava/twitter-api-examples) by [@jbulava](https://twitter.com/jbulava)
