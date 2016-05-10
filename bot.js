@@ -46,7 +46,7 @@ user_stream.on('tweet', function (tweet) {
     for (i = 0; i < mentions.length; i++) {
         if (mentions[i].screen_name == screen_name) {
             // post an image
-            tweet_with_media('../tweetbot/images/sorted/frame-0029.png');
+            tweet_with_media('./images/00001.png');
         }
     }
 });
@@ -61,6 +61,7 @@ function tweet_with_media(file)
     
     T.post('media/upload', params, function (e, d, r) {
         var meta_params = { media_id: d.media_id_string };
+        meta_params.image = { image_type: "image/png" };
         T.post('media/metadata/create', meta_params, function (e, d, r) {
             if (!e) {
                 var params = { status: '', media_ids: [meta_params.media_id] };
