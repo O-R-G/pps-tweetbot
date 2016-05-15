@@ -18,7 +18,7 @@ Before running
 
 Note: For your safety, the config.js file will NOT be added to your repository.  This is handled by the .gitignore file and the purpose is to not publically expose your applications keys.
 
-Install twit
+Install dependencies
 ------------
 	npm install
 
