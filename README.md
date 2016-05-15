@@ -20,10 +20,10 @@ Note: For your safety, the config.js file will NOT be added to your repository. 
 
 Install twit
 ------------
-	npm install twit
+	npm install
 
 To run
 -----------
-    bot.js
+    grunt forever:bot:start
 
 Based on [Twitter REST and Streaming Examples](https://github.com/jbulava/twitter-api-examples) by [@jbulava](https://twitter.com/jbulava)
