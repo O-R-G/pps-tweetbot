@@ -30,26 +30,9 @@ var config = require('./config.js');
 // Requiring the Twit package
 var TwitPackage = require('twit');
 // Creating an instance of the Twit package
-var T = new TwitPackage(config);     
+var T = new TwitPackage(config);
 
-// Define which Twitter handle to track 
-var screen_name = 'O_R_G_pps';
-
-// Create a Twitter User Stream connection
-var user_stream   = T.stream('user');
-
-// Listen for replies
-user_stream.on('tweet', function (tweet) {
-    var i, mentions, b64content;
-    mentions = tweet.entities.user_mentions;
-    
-    for (i = 0; i < mentions.length; i++) {
-        if (mentions[i].screen_name == screen_name) {
-            // post an image
-            tweet_with_media('./images/00001.png');
-        }
-    }
-});
+file = './images/00001.png';
 
 // post a tweet to the authorised user's account
 // status will be empty aside from the media file provided
@@ -75,3 +58,5 @@ function tweet_with_media(file)
         });
     });
 }
+
+tweet_with_media(file);

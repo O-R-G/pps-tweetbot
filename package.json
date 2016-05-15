@@ -1,0 +1,11 @@
+{
+    "name": "pps-tweetbot",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": 
+    {
+        "grunt": "^1.0.1",
+        "grunt-forever": "^0.4.7",
+        "twit": "^2.2.4"
+    }
+}

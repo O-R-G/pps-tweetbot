@@ -16,3 +16,6 @@ private/
 # Logs
 logs
 *.log
+
+# image files
+images/*
