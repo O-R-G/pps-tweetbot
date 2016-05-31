@@ -14,7 +14,8 @@ var bot = { };
 bot.start = function () {
 
     // Create Twitter object
-    var T = new Twit(config);
+    var T = new Twit(config.creds);
+    console.log(config.img_path);
 
     // Define which Twitter handle to track 
     var screen_name = 'O_R_G_pps';
@@ -30,7 +31,7 @@ bot.start = function () {
         for (i = 0; i < mentions.length; i++) {
             if (mentions[i].screen_name == screen_name) {
                 // post an image
-                var img = newest_img('./images');
+                var img = newest_img(config.img_path);
                 tweet_with_media(T, img);
             }
         }
