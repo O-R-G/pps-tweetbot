@@ -58,7 +58,7 @@ exports.is_image = (fname) =>
 
 // post a tweet to the authorised user's account
 // status will be empty aside from the media file provided
-exports.tweet_with_media = (T, file) =>
+exports.tweet_with_media = (T, file, text, reply_id) =>
 {
     var b64_data, params; 
     b64_data = fs.readFileSync(file, { encoding: 'base64' });
@@ -69,7 +69,9 @@ exports.tweet_with_media = (T, file) =>
         meta_params.image = { image_type: "image/png" };
         T.post('media/metadata/create', meta_params, function (e, d, r) {
             if (!e) {
-                var params = { status: '', media_ids: [meta_params.media_id] };
+                var params = {  status: text, 
+                                in_reply_to_status_id: reply_id,
+                                media_ids: [meta_params.media_id] };
                 T.post('statuses/update', params, function (e, d, r) {
                     // don't post ALL THE DATA
                     console.log(d.created_at);

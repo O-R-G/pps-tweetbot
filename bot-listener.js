@@ -19,14 +19,16 @@ bot.start = function () {
 
     // Listen for replies
     user_stream.on('tweet', function (tweet) {
-        var i, mentions, b64content;
+        var i, mentions, b64content, text, id;
         mentions = tweet.entities.user_mentions;
-    
+        id = tweet.id_str;
+        text = ".@" + tweet.user.screen_name;
+        console.log(text);
         for (i = 0; i < mentions.length; i++) {
             if (mentions[i].screen_name == screen_name) {
                 // post an image
                 var img = util.newest_img(config.img_path);
-                util.tweet_with_media(T, img);
+                util.tweet_with_media(T, img, text, id);
             }
         }
     });
