@@ -9,10 +9,9 @@ bot.start = function () {
 
     // Create Twitter object
     var T = new Twit(config.creds);
-    console.log(config.img_path);
 
     // Define which Twitter handle to track 
-    var screen_name = 'O_R_G_pps';
+    var id_str = '720309485525270530';
 
     // Create a Twitter User Stream connection
     var user_stream   = T.stream('user');
@@ -25,8 +24,9 @@ bot.start = function () {
         text = ".@" + tweet.user.screen_name;
         console.log(text);
         for (i = 0; i < mentions.length; i++) {
-            if (mentions[i].screen_name == screen_name) {
+            if (mentions[i].id_str == id_str) {
                 // post an image
+                console.log(mentions[i]);
                 var img = util.newest_img(config.img_path);
                 util.tweet_with_media(T, img, text, id);
             }
