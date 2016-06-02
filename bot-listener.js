@@ -18,7 +18,7 @@ bot.start = function () {
 
     // Listen for replies
     user_stream.on('tweet', function (tweet) {
-        var i, mentions, b64content, text, id;
+        var i, mentions, b64content, text, id, tmp, img_path, img;
         mentions = tweet.entities.user_mentions;
         id = tweet.id_str;
         text = ".@" + tweet.user.screen_name;
@@ -27,7 +27,13 @@ bot.start = function () {
             if (mentions[i].id_str == id_str) {
                 // post an image
                 console.log(mentions[i]);
-                var img = util.newest_img(config.img_path);
+                
+                // + randomly choose either lefty or righty
+                tmp = Math.floor(Math.random() * config.img_paths.length);
+                img_path = config.img_paths[tmp];
+                
+                // + get the newest image from l / r
+                img = util.newest_img(img_path);
                 util.tweet_with_media(T, img, text, id);
             }
         }

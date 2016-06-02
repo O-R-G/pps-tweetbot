@@ -8,8 +8,12 @@ const util = require('./tweet-util.js');
 // connect to twitter
 var T = new Twit(config.creds);
 
-// get image to tweet
-var img = util.newest_img(config.img_path);
+// randomly choose either lefty or righty
+var tmp = Math.floor(Math.random() * config.img_paths.length);
+var img_path = config.img_paths[tmp];
+
+// get the newest image
+var img = util.newest_img(img_path);
 
 // tweet it out
 util.tweet_with_media(T, img);
